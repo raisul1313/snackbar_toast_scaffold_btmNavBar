@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../custom/custom_button.dart';
 
 class ScaffoldExample extends StatelessWidget {
   const ScaffoldExample({Key? key}) : super(key: key);
-
-  _buttonPressed() {
-    debugPrint("Alarm button pressed");
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +19,14 @@ class ScaffoldExample extends StatelessWidget {
         backgroundColor: Colors.amberAccent.shade700,
         actions: [
           IconButton(
-            onPressed: () => debugPrint("Email Icon Pressed"),
+            onPressed: () =>
+                Fluttertoast.showToast(msg: "Email Button Pressed"),
             color: Colors.black,
             icon: const Icon(Icons.email),
           ),
           IconButton(
-            onPressed: _buttonPressed,
+            onPressed: () =>
+                Fluttertoast.showToast(msg: "Alarm Button Pressed"),
             color: Colors.black,
             icon: const Icon(Icons.access_alarms),
           ),
@@ -51,8 +52,12 @@ class ScaffoldExample extends StatelessWidget {
                   ],
                 ),
               ),
-              onTap: () => debugPrint("Tapped..."),
-            )
+              onTap: () => Fluttertoast.showToast(msg: "Tap Me..."),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            CustomButton(),
           ],
         ),
       ),
