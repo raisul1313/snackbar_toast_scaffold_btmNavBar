@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        //Create SnackBar
         final snackBar = SnackBar(
           content: Text(
             "Tapped on SnackBar Button",
@@ -15,6 +16,8 @@ class CustomButton extends StatelessWidget {
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       },
+
+      //Create Custom Button
       child: Container(
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
