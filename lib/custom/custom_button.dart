@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
         //Create SnackBar
         final snackBar = SnackBar(
           content: Text(
-            "Tapped on SnackBar Button",
+            "Tapped on SnackBar Button (GestureDetector)",
             textAlign: TextAlign.center,
           ),
         );

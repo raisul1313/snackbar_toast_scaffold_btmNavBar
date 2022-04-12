@@ -3,13 +3,55 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import '../custom/custom_button.dart';
 
-class ScaffoldExample extends StatelessWidget {
+class ScaffoldExample extends StatefulWidget {
   const ScaffoldExample({Key? key}) : super(key: key);
+
+  @override
+  State<ScaffoldExample> createState() => _ScaffoldExampleState();
+}
+
+class _ScaffoldExampleState extends State<ScaffoldExample> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      Fluttertoast.showToast(
+          msg: "Tapped Item $index",
+          backgroundColor: Colors.white,
+          textColor: Colors.black);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber.shade400,
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.business_sharp,
+            ),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.school,
+            ),
+            label: 'School',
+          ),
+        ],
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.orange,
+        currentIndex: _selectedIndex,
+        backgroundColor: Colors.white,
+      ),
       appBar: AppBar(
         title: const Text(
           "Scaffold",
@@ -19,16 +61,20 @@ class ScaffoldExample extends StatelessWidget {
         backgroundColor: Colors.amberAccent.shade700,
         actions: [
           IconButton(
-            onPressed: () =>
-                Fluttertoast.showToast(msg: "Email Button Pressed"),
             color: Colors.black,
             icon: const Icon(Icons.email),
+            onPressed: () => Fluttertoast.showToast(
+                msg: "Email Button Pressed (Icon Button)",
+                backgroundColor: Colors.white,
+                textColor: Colors.black),
           ),
           IconButton(
-            onPressed: () =>
-                Fluttertoast.showToast(msg: "Alarm Button Pressed"),
             color: Colors.black,
             icon: const Icon(Icons.access_alarms),
+            onPressed: () => Fluttertoast.showToast(
+                msg: "Alarm Button Pressed (Icon Button)",
+                backgroundColor: Colors.white,
+                textColor: Colors.black),
           ),
         ],
       ),
@@ -52,7 +98,10 @@ class ScaffoldExample extends StatelessWidget {
                   ],
                 ),
               ),
-              onTap: () => Fluttertoast.showToast(msg: "Tap Me..."),
+              onTap: () => Fluttertoast.showToast(
+                  msg: "Tap Me. (Inkwell)",
+                  backgroundColor: Colors.white,
+                  textColor: Colors.black),
             ),
             SizedBox(
               height: 50.0,
