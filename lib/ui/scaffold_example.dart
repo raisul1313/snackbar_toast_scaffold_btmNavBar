@@ -27,6 +27,15 @@ class _ScaffoldExampleState extends State<ScaffoldExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber.shade400,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        child: Icon(Icons.add),
+        onPressed: () => Fluttertoast.showToast(
+            msg: "Floating Action Button Pressed",
+            backgroundColor: Colors.white,
+            textColor: Colors.black),
+      ),
+      //Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

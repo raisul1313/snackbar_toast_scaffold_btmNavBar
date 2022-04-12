@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
       onTap: () {
         //Create SnackBar
         final snackBar = SnackBar(
+          duration: Duration(seconds: 1),
           content: Text(
             "Tapped on SnackBar Button (GestureDetector)",
             textAlign: TextAlign.center,
@@ -21,7 +22,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: Colors.pinkAccent,
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Text(
